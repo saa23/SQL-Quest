@@ -35,6 +35,8 @@ WHERE city = "SQL City"
 	AND date = "20180115"   # 15 Jan 2018
 ```
 
+![crime-scene-report](./images/1-crime_scene_report.png)
+
 ### 3.2. Witness’s Profile
 #### Witness #1
 ```sql
@@ -45,6 +47,7 @@ and address_number = (select max(address_number)
 from person
 where address_street_name = "Northwestern Dr")
 ```
+![first-witness](./images/2-first_witness.png)
 
 #### Witness #2
 ```sql
@@ -53,6 +56,7 @@ from person
 where address_street_name = "Franklin Ave"
 	and lower(name) like "%annabel%"
 ```
+![second-witness](./images/2-second_witness.png)
 
 Here are some important information so far:
 - From witness #1
@@ -72,6 +76,7 @@ select *
 from interview
 where person_id in (99826, 14887, 16371)
 ```
+![interview-with-witness](./images/3-interview_result.png)
 
 
 ### 3.4. Identify The Killer Profile based on Interview Leads
@@ -84,6 +89,7 @@ from person
 join drivers_license on person.license_id = drivers_license.id
 where plate_number like "%H42W%"
 ```
+![interview-with-witness](./images/4-leads_to_killer_profile.png)
 
 ### 3.5. Check for Gym Membership Data
 ```sql
@@ -92,6 +98,7 @@ from get_fit_now_member
 where person_id in (51739, 67318, 78193)
 and lower(id) like “%48z%”
 ```
+![gym-membersip](./images/5-gym_membership_of_killer.png)
 
 Check-in and check-out activities of gym members
 ```sql
@@ -99,6 +106,7 @@ select *
 from get_fit_now_check_in
 where membership_id = "48Z55"
 ```
+![check-in_check-out](./images/5-check_in_check_out.png)
 
 ### 3.6. Track the activities using Social Media
 ```sql
@@ -106,13 +114,14 @@ select *
 from facebook_event_checkin
 where person_id = 67318
 ```
+![killer-activity](./images/6-event_attended_by_killer.png)
 
-Additional insight about annual income the suspect
+<!-- Additional insight about annual income the suspect
 ```sql
 select *
 from income
 where ssn = "871539279"
-```
+``` -->
 
 Hmm…. All the information so far leads to Jeremy Bowers as the killer.
 
@@ -124,6 +133,7 @@ Then.. let’s submit that conclusion and see the result.
 INSERT INTO solution VALUES (1, 'Jeremy Bowers');
 SELECT value FROM solution;
 ```
+![submit-answer-kiler](./images/6-submit_killer_answer.png)
 
 
 ### 3.7. Interview Record with the Suspect
@@ -132,14 +142,13 @@ select *
 from interview
 where person_id = 67318
 ```
+![interview-with-killer](./images/7-interview_with_killer.png)
 
 ### 3.8. The Mastermind of the Crime
 ```sql
 select person.name,
-	address_number,
-address_street_name,
-person.ssn,
-income.annual_income,
+	person.ssn,
+	income.annual_income,
 	drivers_license.*,
 	event_name,
 	_fb.date as event_date
@@ -151,7 +160,9 @@ where car_make = "Tesla"
 	and car_model = "Model S"
 	and hair_color = "red"
 	and gender = "female"
+ORDER BY _fb.date
 ```
+![submit-answer-kiler](./images/6-submit_killer_answer.png)
 
 Finally, we have all evidence to corner the perpretrators.
 
@@ -161,3 +172,6 @@ Let's reveal the truth and arrest them! 🕵️‍♂️
 INSERT INTO solution VALUES (1, 'Miranda Priestly');
 SELECT value FROM solution;
 ```
+![submit-final-answer](./images/9-submit_final_answer.png)
+
+With that, the case has been completely solved ✅ 
