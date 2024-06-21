@@ -155,7 +155,7 @@ where car_make = "Tesla"
 
 Finally, we have all evidence to corner the perpretrators.
 
-Let's reveal the truth and arrest them!
+Let's reveal the truth and arrest them! 🕵️‍♂️
 
 ```sql
 INSERT INTO solution VALUES (1, 'Miranda Priestly');
