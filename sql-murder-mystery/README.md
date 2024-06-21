@@ -223,7 +223,7 @@ It is completely match with the description on interview with Jeremy Bowers. The
 
 From the physical profile, the vehicle she drives, and the fact that she attended *SQL Symphony Concert* three times in December 2017 (6,12,29 December 2017).
 
-It all make sense now, most likely at 6 December 2017 Miranda Priestly met Jeremy Bowers at the event *SQL Symphony Concert* and maybe hired him also at that time or at least described some instruction and plan.
+It all make sense now, most likely at 6 December 2017 Miranda Priestly met Jeremy Bowers at the event *SQL Symphony Concert* and maybe hired him also at that time or at least explained some instructions and plans.
 
 Finally, we have all evidence to corner the perpretrators.
 
