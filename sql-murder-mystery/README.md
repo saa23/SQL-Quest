@@ -10,6 +10,10 @@
   <figcaption style="font-style: italic; font-size: small;">Image by Gerd Altmann from Pixabay</figcaption>
 </figure>
 
+<br/>
+<br/>
+<br/>
+
 SQL Murder Mystery is an interactive and educational mystery game that helps people learn SQL concepts in a fun and engaging way. It was created by *Knight Lab* team at Northwestern University and has gained popularity as a hands-on learning tool for SQL enthusiasts.
 
 Source link: [click here](https://mystery.knightlab.com/)
