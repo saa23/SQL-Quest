@@ -27,6 +27,13 @@ Here are the tables and potential information within them:
 
 ## 3. Step-by-step
 ### 3.1. Crime Scene Report
+
+Our only leads data are below:
+- The crime that happened in SQL city is murder
+- It is occurred sometime on 15th January, 2018
+
+Let's dive into the crime scene report!
+
 ```sql
 SELECT *
 FROM crime_scene_report
@@ -36,6 +43,11 @@ WHERE city = "SQL City"
 ```
 
 ![crime-scene-report](./images/1-crime_scene_report.png)
+
+The key point is there were 2 witnesses:
+1.	The first witness lives at the last house on "Northwestern Dr"
+2.	The second witness, named Annabel, lives somewhere on "Franklin Ave".
+
 
 ### 3.2. Witness’s Profile
 #### Witness #1
@@ -58,28 +70,36 @@ where address_street_name = "Franklin Ave"
 ```
 ![second-witness](./images/2-second_witness.png)
 
-Here are some important information so far:
-- From witness #1
-    -	The killer has “Get Fit Now Gym” bag with membership number “48z”
-    -	It is suspected a gold member only bag
-    -	The killer got into car with plate number “H42W”
-
-- From witness #2:
-    -	The killer from the same gym of the witness
-    -	The murder happened when the witness was working last week on 9th January 2018
-
-
 
 ### 3.3. Interview Result
+
+Time to check the interview result with the witnesses.
+
 ```sql
 select *
 from interview
-where person_id in (99826, 14887, 16371)
+where person_id in (14887, 16371)
 ```
 ![interview-with-witness](./images/3-interview_result.png)
 
 
+Here are some important information:
+- From witness #1 (Morty Schapiro):
+    -	The killer has “Get Fit Now Gym” bag with membership number “48z”
+    -	It is suspected a gold member only bag
+    -	The killer got into car with plate number “H42W”
+
+- From witness #2 (Annabel Miller):
+    -	The killer from the same gym of the witness
+    -	The murder happened when the witness was working last week on 9th January 2018
+
 ### 3.4. Identify The Killer Profile based on Interview Leads
+
+Let’s shrink down the possibility.
+
+First, we can get some leads based on plate number data.
+
+
 ```sql
 select person.id as person_id,
 	name, license_id, address_number, address_street_name,
@@ -91,7 +111,14 @@ where plate_number like "%H42W%"
 ```
 ![interview-with-witness](./images/4-leads_to_killer_profile.png)
 
+Hmm.. There are three persons based on the plate number criteria.
+
+The killer must be one of them.
+
 ### 3.5. Check for Gym Membership Data
+
+Now we check the *Get Fit Now* Gym membership among those three suspects.
+
 ```sql
 select *
 from get_fit_now_member
@@ -99,6 +126,14 @@ where person_id in (51739, 67318, 78193)
 and lower(id) like “%48z%”
 ```
 ![gym-membersip](./images/5-gym_membership_of_killer.png)
+
+
+Of the three suspect, only Jeremy Bowers has the gold gym membership and registered since 1st January 2016.
+
+Ok, now we can deep dive check specifically on him.
+
+Let's check when he last time went to gym.
+
 
 Check-in and check-out activities of gym members
 ```sql
@@ -108,6 +143,8 @@ where membership_id = "48Z55"
 ```
 ![check-in_check-out](./images/5-check_in_check_out.png)
 
+The last time he went to gym at 9th January 2018 from 15:30 to 17:00.
+
 ### 3.6. Track the activities using Social Media
 ```sql
 select *
@@ -116,16 +153,10 @@ where person_id = 67318
 ```
 ![killer-activity](./images/6-event_attended_by_killer.png)
 
-<!-- Additional insight about annual income the suspect
-```sql
-select *
-from income
-where ssn = "871539279"
-``` -->
 
 Hmm…. All the information so far leads to Jeremy Bowers as the killer.
 
-Not sure… but all evidence point to him.
+All evidence match and point to him.
 
 Then.. let’s submit that conclusion and see the result.
 
@@ -135,6 +166,8 @@ SELECT value FROM solution;
 ```
 ![submit-answer-kiler](./images/6-submit_killer_answer.png)
 
+It seems we still have another mission that is find the mastermind behind the crime.
+
 
 ### 3.7. Interview Record with the Suspect
 ```sql
@@ -143,6 +176,14 @@ from interview
 where person_id = 67318
 ```
 ![interview-with-killer](./images/7-interview_with_killer.png)
+
+
+Here are breakdown detail information of the interview:
+- The killer was hired by a woman
+- Her height around 65" - 67"
+- She has red hair
+- She drives a Tesla Model S
+- Based on description, she attended the **SQL Symphony Concert** 3 times in December 2017
 
 ### 3.8. The Mastermind of the Crime
 ```sql
@@ -162,7 +203,7 @@ where car_make = "Tesla"
 	and gender = "female"
 ORDER BY _fb.date
 ```
-![submit-answer-kiler](./images/6-submit_killer_answer.png)
+![submit-answer-kiler](./images/8-the_crime_mastermind.png)
 
 Finally, we have all evidence to corner the perpretrators.
 
@@ -174,4 +215,6 @@ SELECT value FROM solution;
 ```
 ![submit-final-answer](./images/9-submit_final_answer.png)
 
-With that, the case has been completely solved ✅ 
+Hooray!!! 🎉🎉🎉
+
+With that, the case has been completely solved ✅✅✅ 
