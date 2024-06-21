@@ -12,8 +12,13 @@ Source link: [click here](https://mystery.knightlab.com/)
 
 <br/>
 
-## [SQL Police Department](https://sqlpd.com)
+## [SQL Police Department]()
 *still on development*
 
-## [SQL Questions from DataLemur](https://datalemur.com)
+Source link: [click here](https://sqlpd.com/)
+
+
+## [SQL Questions from DataLemur]()
 *still on development*
+
+Source link: [click here](https://datalemur.com/)

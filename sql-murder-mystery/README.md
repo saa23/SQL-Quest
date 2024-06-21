@@ -1,5 +1,10 @@
 # SQL Murder Mystery
 
+<div style="text-align: center;">
+    <img src="./images/detective-6552133_640.jpg" alt="detective-solving-case" style="max-width: 100%; height: auto;">
+    <p style="font-style: italic;">Image by Gerd Altmann from Pixabay</p>
+</div>
+
 SQL Murder Mystery is an interactive and educational mystery game that helps people learn SQL concepts in a fun and engaging way. It was created by *Knight Lab* team at Northwestern University and has gained popularity as a hands-on learning tool for SQL enthusiasts.
 
 Source link: [click here](https://mystery.knightlab.com/)
@@ -183,7 +188,7 @@ Here are breakdown detail information of the interview:
 - Her height around 65" - 67"
 - She has red hair
 - She drives a Tesla Model S
-- Based on description, she attended the **SQL Symphony Concert** 3 times in December 2017
+- Based on description, she attended the *SQL Symphony Concert* three times in December 2017
 
 ### 3.8. The Mastermind of the Crime
 ```sql
@@ -204,6 +209,12 @@ where car_make = "Tesla"
 ORDER BY _fb.date
 ```
 ![submit-answer-kiler](./images/8-the_crime_mastermind.png)
+
+It is completely match with the description on interview with Jeremy Bowers. The brain behind the crime is Miranda Priestly!.
+
+From the physical profile, the vehicle she drives, and the fact that she attended *SQL Symphony Concert* three times in December 2017 (6,12,29 December 2017).
+
+It all make sense now, most likely at 6 December 2017 Miranda Priestly met Jeremy Bowers at the event *SQL Symphony Concert* and maybe hired him also at that time or at least described some instruction and plan.
 
 Finally, we have all evidence to corner the perpretrators.
 
